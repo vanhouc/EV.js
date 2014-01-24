@@ -1,0 +1,6 @@
+﻿{
+"badges": [
+{ "badgeNumber":"101" , "name":"Bob"},
+{ "badgeNumber":"102" , "name":"Bob Jr."}
+]
+}

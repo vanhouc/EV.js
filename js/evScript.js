@@ -1,31 +1,61 @@
-﻿var plan,
-    svgReq,
+﻿var svgReq,
+    svgBDReq,
     i,
+    creatingRect = false,
+    rect,
+    buildingRect = false,
+    layerlistObj = document.getElementById('layerlist'),
     mousePosition,
-    init = function (data) {
-        plan = project.importSVG(data);
-    };
+init = function (data) {
+    project.importSVG(data);
+    for (i = 0; i < project.layers.length; i++) {
+        $('#layerlist').append(project.layers[i].index);
+    }
+},
+loadBadges = function (data) {
+    var currentLayer = project.layers['EVTEXT']
+    var textRegion = project.layers['EVTEXT'].firstChild;
+    var height = 0;
+    for (i = 0; i < data.badges; i++) {
+        currentLayer.addChild(new PointText({
+            point: [0, height],
+            content: data.badges[i].name,
+            fillColor: 'black',
+            fontFamily: 'arial',
+            fontSize: 6
+        }))
+    }
+};
 $(document).ready(function () {
-    svgReq = $.get("svg/Y11 Infusion2.svg");
+    svgReq = $.get("svg/Y11 Infusion.svg");
     svgReq.done(function (data) {
         init(data);
+    });
+    svgBDReq = $.getJSON("data/Y11 Infusion.txt");
+    svgBDReq.done(function (data) {
+
     });
 });
 function onKeyDown(event) {
     if (event.key == 'up') {
-        plan.scale(1.1, mousePosition);
+        project.activeLayer.scale(1.1, mousePosition);
         return false;
     }
     if (event.key == 'down') {
-        plan.scale(0.9, mousePosition);
+        project.activeLayer.scale(0.9, mousePosition);
         return false;
     }
     alert(event.key);
 }
 tool.minDistance = 10;
 function onMouseDrag(event) {
-    view.scrollBy(event.delta);
+    view.scrollBy(event.delta / 2);
 }
 function onMouseMove(event) {
     mousePosition = event.point;
+}
+function onMouseClick(event) {
+    if (creatingRect === false) {
+
+    }
 }
