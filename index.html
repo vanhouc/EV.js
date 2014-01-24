@@ -2,10 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-
+    <header class="jumbotron">
+        <h1>enterpriseView.js</h1>
+        <p>A javascript implementation of the Versus Technology<sup>&trade;</sup> Enterprise View<sup>&trade;</sup> app</p>
+    </header>
+    <section class="col-lg-12">
+        <canvas resize id="evCanvas"></canvas>
+    </section>
     <script type="text/javascript" src="js/paper.js"></script>
     <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script type="text/paperscript" src="js/evScript.js" canvas="evCanvas"></script>
 </body>
 </html>
