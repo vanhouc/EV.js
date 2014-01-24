@@ -1,5 +1,12 @@
 ﻿var plan,
+    svgReq,
+    i,
     init = function (data) {
-        plan = project.importSVG(document.getElementById('evCanvas'));
+        plan = project.importSVG(data);
     };
-$.get('')
+$(document).ready(function () {
+    svgReq = $.get("svg/Y11_Infusion.svg");
+    svgReq.done(function (data) {
+        init(data);
+    });
+});
