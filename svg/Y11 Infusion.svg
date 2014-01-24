@@ -1278,9 +1278,9 @@
 	<text transform="matrix(1 0 0 1 536.75 262.25)" font-family="'ArialMT'" font-size="9">Main Elevator Lobby</text>
 	<text transform="matrix(1 0 0 1 478.3333 134.8332)" font-family="'ArialMT'" font-size="9">Vitals</text>
 </g>
-<g id="Floorplan_Labels">
+<g id="Floorplan_Labels" display="none">
 	
-		<image overflow="visible" width="181" height="32" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAZAAA/+4ADkFkb2JlAGTAAAAAAf/b
+		<image display="inline" overflow="visible" width="181" height="32" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAZAAA/+4ADkFkb2JlAGTAAAAAAf/b
 AIQAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQICAgICAgICAgIC
 AwMDAwMDAwMDAwEBAQEBAQECAQECAgIBAgIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD
 AwMDAwMDAwMDAwMDAwMDAwMD/8AAEQgAIAC1AwERAAIRAQMRAf/EALgAAAICAQUBAAAAAAAAAAAA
@@ -1423,7 +1423,7 @@ PkjkT0eUrlM9mjkmRJnqZylaQSmTHOzkU3kFBLJKJTJUqclOSWAooAcLVXVvVrxfePxHYNwGQhgp
 aVqjZDLX5u87yczBa9DQTH//2Q==" transform="matrix(1 0 0 1 806.1981 589.5)">
 	</image>
 	
-		<image overflow="visible" width="349" height="141" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEAlgCWAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
+		<image display="inline" overflow="visible" width="349" height="141" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEAlgCWAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
 EAMCAwYAAAO+AAAG1QAAEgf/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
 Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
 JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIAJABYAMBIgACEQEDEQH/
@@ -1505,9 +1505,6 @@ Wd22rtQdmoRLJIgx5VmTlkD7xDVSblPDQFa07TrIzVlkaTKt5qsQV8AtWgCilBqXEkZkjmUo5QgM
 VYUIqQeOo4FZnWJQqs9C1BwrQDUORe0WTjXcqaOlwDijA1BBB05DM8krXyyOasxoFHCnADT4c7Os
 MlL+WQCQDWlSD5tBSxcgUualT6aU0eoieaPIaMQ+Arbyw19KMh7dLArM4Svjc1ZiTcSx9J/u0//Z" transform="matrix(0.48 0 0 0.48 3.91 5.3259)">
 	</image>
-	<text transform="matrix(1 0 0 1 61.0001 75.0759)" font-family="'ArialMT'" font-size="14">Y11 Infusion</text>
-</g>
-<g id="EVTEXT">
-	<rect x="122.625" y="139.667" fill="none" stroke="#000000" stroke-miterlimit="10" width="199.125" height="177.458"/>
+	<text transform="matrix(1 0 0 1 61.0001 75.0759)" display="inline" font-family="'ArialMT'" font-size="14">Y11 Infusion</text>
 </g>
 </svg>
