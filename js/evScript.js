@@ -2,7 +2,8 @@
     svgBDReq,
     i,
     creatingRect = false,
-    rect,
+    rectp1,
+    rectPreview,
     buildingRect = false,
     layerlistObj = document.getElementById('layerlist'),
     mousePosition,
@@ -53,9 +54,21 @@ function onMouseDrag(event) {
 }
 function onMouseMove(event) {
     mousePosition = event.point;
+    if (creatingRect == true) {
+        rectPreview = new Path.Rectangle(rectp1, mousePosition);
+        rectPreview.strokeColor = 'black';
+        console.log("The Mouse moved");
+    }
 }
-function onMouseClick(event) {
-    if (creatingRect === false) {
-
+function onMouseDown(event) {
+    if (creatingRect == false) {
+        rectp1 = mousePosition;
+        creatingRect = true;
+        console.log("Yo dawg I clicked dat mouse");
+    }
+    console.log("CLICK");
+    if (creatingRect == true) {
+        var path = new Path.Rectangle(rectp1, mousePosition);
+        creatingRect = false;
     }
 }
