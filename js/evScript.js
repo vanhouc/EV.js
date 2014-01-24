@@ -6,7 +6,7 @@
         plan = project.importSVG(data);
     };
 $(document).ready(function () {
-    svgReq = $.get("svg/Y11_Infusion2.svg");
+    svgReq = $.get("svg/Y11 Infusion2.svg");
     svgReq.done(function (data) {
         init(data);
     });
