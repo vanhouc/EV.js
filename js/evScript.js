@@ -46,26 +46,9 @@ function onKeyDown(event) {
         project.activeLayer.scale(0.9, mousePosition);
         return false;
     }
-    alert(event.key);
 }
-function onFrame(event) {
-    if (rectp1 != null) {
-        if (rectPreview != null) {
-            rectPreview.remove();
-        }
-        rectPreview = new Path.Rectangle(rectp1, mousePosition)
-        rectPreview.strokeColor = 'black';
-        rectPreview.selected = true;
-    }
-}
-tool.minDistance = 1;
+
 function onMouseDrag(event) {
     view.scrollBy(event.delta / 2);
 }
-function onMouseMove(event) {
-    mousePosition = event.point;
-}
-function onMouseDown(event) {
-    rectp1 = mousePosition;
-    console.log("Mouse Position:" + mousePosition);
-}
+
