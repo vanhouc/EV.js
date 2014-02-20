@@ -17,7 +17,42 @@
         <button class="btn btn-default" id="viewButton">View</button>
         <button class="btn btn-default" id="editButton">Edit</button>
         <canvas style="border: solid" id="evCanvas"></canvas>
-        <ul class="list-group" id="receiverList"></ul>
+        
+        <section class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Listview</h2>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Receiver #</th>
+                            <th>Name</th>
+                            <th>Badges</th>
+                        </tr>
+                    </thead>
+                    <tbody id="roomView"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Listview</h2>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Badge Number</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listView"></tbody>
+                </table>
+            </div>
+        </section>
     </article>
     <script type="text/javascript" src="js/paper.js"></script>
     <script type="text/javascript" src="js/jquery-2.0.3.js"></script>

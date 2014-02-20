@@ -18,12 +18,28 @@
     getBadgeData,
     updateLocationData,
     receiverIndex = 1001,
-    updateReceiverList;
+    updateListView,
+    updateRoomList;
+
 getBadgeData = function () {
     $.getJSON('data/Y11 Infusion.txt')
     .done(function (data) {
         updateLocationData(data);
+        updateListView(data);
+        updateRoomList(data);
     });
+};
+updateListView = function (data) {
+    var listView = $('#listView');
+    listView.empty();
+    for (var o = 0; o < data.badges.length; o++) {
+        listView.append(
+            '<tr>' +
+            '<td>' + data.badges[o].badgeNumber + '</td>' +
+            '<td>' + data.badges[o].name + '</td>' +
+            '<td>' + data.badges[o].location + '</td>' +
+            '</tr>');
+    }
 };
 updateLocationData = function (data) {
     for (var p = 0; p < nameArray.length; p++) {
@@ -62,19 +78,23 @@ receiver = function (name, receiverNumber, rectangle) {
     this.outlinePath = new Path.Rectangle(rectangle);
     this.outlinePath.strokeColor = 'black';
 }
-updateReceiverList = function () {
-    var receiverList = $('#receiverList');
-    receiverList.empty();
-    for (var i = 0; i < receivers.length; i++) {
-        receiverList.append(
-            '<li class=\'list-group-item\'>' +
-            'Zone name: ' +
-            receivers[i].name +
-            ' Receiver Number: ' +
-            receivers[i].receiverNumber +
-            '</li>');
+updateRoomList = function (data) {
+    var roomView = $('#roomView');
+    roomView.empty();
+    for (var o = 0; o < receivers.length; o++) {
+        var badgesInRoom = new Array();
+        //for (var l = 0; l < data.badges.length; l++) {
+        //    if (data.badges[l].location === receiver[o].receiverNumber.toString()) {
+        //        badgesInRoom.push(data.badges[l].location)
+        //    }
+        //}
+        roomView.append(
+            '<tr>' +
+            '<td>' + receivers[o].receiverNumber + '</td>' +
+            '<td>' + receivers[o].name + '</td>' +
+            '<td>' + badgesInRoom.toString() + '</td>' +
+            '</tr>');
     }
-    getBadgeData();
 };
 zoom = function (event) {
     if (event.key == 'up') {
@@ -101,7 +121,7 @@ endZone = function (event) {
     point1 = null;
     point2 = null;
     receiverIndex += 1;
-    updateReceiverList();
+    getBadgeData();
 };
 editZoneHandler = function (event) {
     console.log('called editZoneHandler');
