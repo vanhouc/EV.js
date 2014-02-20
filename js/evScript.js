@@ -6,6 +6,7 @@
     point2 = null,
     receiver,
     receivers = new Array(),
+    nameArray = new Array(),
     zoom,
     scroll,
     startZone,
@@ -14,7 +15,41 @@
     pollCursor,
     editZoneHandler,
     init,
+    getBadgeData,
+    updateLocationData,
+    receiverIndex = 1001,
     updateReceiverList;
+getBadgeData = function () {
+    $.getJSON('data/Y11 Infusion.txt')
+    .done(function (data) {
+        updateLocationData(data);
+    });
+};
+updateLocationData = function (data) {
+    for (var p = 0; p < nameArray.length; p++) {
+        console.log(nameArray[p]);
+        nameArray[p].remove();
+    }
+    nameArray = new Array();
+    for (var t = 0; t < receivers.length; t++) {
+        receivers[t].nameHeight = 16;
+    }
+    for (var i = 0; i < data.badges.length; i++) {
+        for (var r = 0; r < receivers.length; r++) {
+            if (data.badges[i].location === receivers[r].receiverNumber.toString()) {
+                var newText = new PointText({
+                    point: receivers[r].outlinePath.bounds.topLeft + new Point(5, receivers[r].nameHeight),
+                    content: data.badges[i].name,
+                    fillColor: 'black',
+                    name: 'name',
+                    scaling: project.activeLayer.scaling
+                });
+                receivers[r].nameHeight += newText.bounds.height;
+                nameArray.push(newText);
+            }
+        }
+    }
+};
 init = function (data) {
     project.importSVG(data);
 
@@ -23,6 +58,9 @@ receiver = function (name, receiverNumber, rectangle) {
     this.name = name;
     this.receiverNumber = receiverNumber;
     this.rectangle = rectangle;
+    this.nameHeight = 16;
+    this.outlinePath = new Path.Rectangle(rectangle);
+    this.outlinePath.strokeColor = 'black';
 }
 updateReceiverList = function () {
     var receiverList = $('#receiverList');
@@ -36,16 +74,17 @@ updateReceiverList = function () {
             receivers[i].receiverNumber +
             '</li>');
     }
+    getBadgeData();
 };
 zoom = function (event) {
     if (event.key == 'up') {
         project.activeLayer.scale(1.1, mousePosition);
-        return false;
     }
     if (event.key == 'down') {
         project.activeLayer.scale(0.9, mousePosition);
-        return false;
     }
+    getBadgeData();
+    return false;
 }
 
 scroll = function (event) {
@@ -57,10 +96,11 @@ startZone = function (event) {
 };
 endZone = function (event) {
     point2 = event.point;
-    var newReceiver = new receiver('test', 1001, new Rectangle(point1, point2));
+    var newReceiver = new receiver('test', receiverIndex, new Rectangle(point1, point2));
     receivers.push(newReceiver);
     point1 = null;
     point2 = null;
+    receiverIndex += 1;
     updateReceiverList();
 };
 editZoneHandler = function (event) {

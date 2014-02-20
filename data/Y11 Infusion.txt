@@ -1,6 +1,7 @@
 ﻿{
 "badges": [
-{ "badgeNumber":"101" , "name":"Bob" , "location" : "101"},
-{ "badgeNumber":"102" , "name":"Bob Jr." , "location" : "101"}
+{ "badgeNumber":"101" , "name":"Bob" , "location" : "1001"},
+{ "badgeNumber":"102" , "name":"Bob Jr." , "location" : "1002"},
+{ "badgeNumber":"103" , "name":"Roger" , "location" : "1001"}
 ]
 }
