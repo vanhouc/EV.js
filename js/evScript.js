@@ -19,7 +19,8 @@
     updateLocationData,
     receiverIndex = 1001,
     updateListView,
-    updateRoomList;
+    updateRoomList,
+    resizeView;
 
 getBadgeData = function () {
     $.getJSON('data/Y11 Infusion.txt')
@@ -161,9 +162,12 @@ $('#editButton').click(function () {
     console.log(editTool);
 });
 $('#resizeViewButton').click(function () {
+    resizeView();
+});
+resizeView = function () {
     var evCanvas = $('#evCanvas');
     view.viewSize = new Size(evCanvas.width(), evCanvas.height());
-});
+}
 $(document).ready(function () {
     var svgReq = $.get("svg/Y11Infusion.svg");
     svgReq.done(function (data) {
@@ -178,4 +182,5 @@ $(document).ready(function () {
     viewTool.attach('keydown', zoom);
     viewTool.attach('mousedrag', scroll);
     viewTool.attach('mousemove', pollCursor);
+    resizeView();
 });
