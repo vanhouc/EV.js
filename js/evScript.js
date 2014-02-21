@@ -160,6 +160,10 @@ $('#editButton').click(function () {
     view.attach('frame', drawEdit);
     console.log(editTool);
 });
+$('#resizeViewButton').click(function () {
+    var evCanvas = $('#evCanvas');
+    view.viewSize = new Size(evCanvas.width(), evCanvas.height());
+});
 $(document).ready(function () {
     var svgReq = $.get("svg/Y11Infusion.svg");
     svgReq.done(function (data) {
