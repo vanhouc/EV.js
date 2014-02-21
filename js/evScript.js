@@ -161,7 +161,7 @@ $('#editButton').click(function () {
     console.log(editTool);
 });
 $(document).ready(function () {
-    var svgReq = $.get("svg/Y11 Infusion.svg");
+    var svgReq = $.get("svg/Y11Infusion.svg");
     svgReq.done(function (data) {
         init(data);
     });
