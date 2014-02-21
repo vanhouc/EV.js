@@ -183,4 +183,5 @@ $(document).ready(function () {
     viewTool.attach('mousedrag', scroll);
     viewTool.attach('mousemove', pollCursor);
     resizeView();
+    getBadgeData();
 });
